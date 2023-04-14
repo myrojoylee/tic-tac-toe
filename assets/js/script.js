@@ -1,12 +1,10 @@
 const gameCard = document.querySelectorAll(".card");
 const gameGrid = document.querySelector(".game__grid");
+const gameOver = document.querySelector(".game-over");
 
 let nextPlayer = true;
 let someoneHasWon = false;
 let turn = 0;
-// let playerOneTurn = 0;
-// let playerTwoTurn = 0;
-let numberOfMoves = 0;
 let squareClicked;
 let playerOneClicks = [];
 let playerTwoClicks = [];
@@ -31,9 +29,7 @@ for (let i = 0; i < gameCard.length; i++) {
     setTimeout(() => {
       gameCard[i].classList.remove("card-clicked");
     }, "100");
-    // while (someoneHasWon === false) {
     continuePlay();
-    // }
   });
 }
 
@@ -58,8 +54,6 @@ function continuePlay() {
     turn++;
     checkWin();
   }
-  // console.log(playerOneClicks);
-  // console.log(playerTwoClicks);
 }
 
 function checkWin() {
@@ -69,26 +63,31 @@ function checkWin() {
   let tempCountTwo = 0;
   if (turn >= 5) {
     for (let i = 0; i < playerOneClicks.length; i++) {
-      for (let j = 0; j < winConditions[i].length; j++) {
-        if (
-          playerOneClicks.includes(winConditions[i][j]) &&
-          x.includes(winConditions[i][j]) === false
-        ) {
-          x.push(winConditions[i][j]);
-          tempCountOne++;
-          console.log(tempCountOne);
-          console.log(x);
-          if (tempCountOne === 3) {
-            if (x.length === 3) {
-              console.log("player one wins!");
+      for (let j = 0; j < winConditions.length; j++) {
+        for (let k = 0; k < winConditions[j].length; k++) {
+          if (
+            playerOneClicks.includes(winConditions[j][k]) &&
+            x.includes(winConditions[j][k]) === false
+          ) {
+            x.push("true");
+            // x.push(winConditions[j][k]);
+            tempCountOne++;
+            console.log(tempCountOne);
+            console.log(x);
+            if (tempCountOne === 3) {
+              if (x.length === 3) {
+                someoneHasWon === true;
+                gameGrid.classList.add("game__grid-disabled");
+                endGame();
+              }
             }
-            // x = [];
-            // tempCountOne = 0;
+          } else {
+            x = [];
+            tempCountOne = 0;
           }
         }
       }
-      x = [];
-      tempCountOne = 0;
+
       // if (
       //   playerTwoClicks.includes(winConditions[i][j]) &&
       //   y.includes(winConditions[i][j]) === false
@@ -100,8 +99,6 @@ function checkWin() {
   }
 }
 
-// if (x.length === 3) {
-//   console.log("win");
-// } else {
-//   x = [];
-// }
+function endGame() {
+  gameOver.style.color = "red";
+}
