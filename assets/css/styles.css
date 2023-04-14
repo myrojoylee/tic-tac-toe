@@ -1,0 +1,76 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --clr--pre-click: white;
+  --clr--hover: #fca5a5;
+  --clr--post-click: #737373;
+
+  --ff--body: "Monoton", sans-serif;
+}
+
+body {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family: var(--ff--body);
+  font-size: 16px;
+}
+
+.game__grid {
+  display: grid;
+  grid-template: 1fr 1fr 1fr / 1fr 1fr 1fr;
+  width: 50vw;
+  height: 50vw;
+  border: 1px solid grey;
+  gap: 0.5em;
+  padding: 0.5em;
+}
+
+.game__grid-disabled {
+  pointer-events: none;
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid grey;
+  border-radius: 0.2em;
+  font-size: 5em;
+  cursor: pointer;
+}
+
+/* .card:hover {
+  background-color: var(--clr--hover);
+} */
+
+.card-clicked {
+  background-color: var(--clr--post-click);
+}
+
+.card-disabled {
+  pointer-events: none;
+}
+
+@media screen and (max-width: 1024px) {
+  .card {
+    font-size: 4em;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .card {
+    font-size: 3em;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .card {
+    font-size: 1.75em;
+  }
+}
