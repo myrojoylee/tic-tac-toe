@@ -8,6 +8,7 @@
   --clr--pre-click: white;
   --clr--hover: #fca5a5;
   --clr--post-click: #737373;
+  --clr--title: #1e1b4b;
 
   --ff--body: "Monoton", sans-serif;
 }
@@ -67,13 +68,19 @@ body {
 }
 
 .game-over {
-  color: transparent;
-  font-size: 3em;
+  display: flex;
+  flex-wrap: wrap;
+  color: var(--clr--title);
+  font-size: 2em;
 }
 
 @media screen and (max-width: 1024px) {
   .card {
     font-size: 4em;
+  }
+
+  .game-over {
+    font-size: 1.5em;
   }
 }
 
@@ -81,10 +88,18 @@ body {
   .card {
     font-size: 3em;
   }
+
+  .game-over {
+    font-size: 1em;
+  }
 }
 
 @media screen and (max-width: 550px) {
   .card {
     font-size: 1.75em;
+  }
+
+  .game-over {
+    font-size: 1em;
   }
 }
