@@ -7,8 +7,9 @@
 :root {
   --clr--pre-click: white;
   --clr--hover: #fca5a5;
-  --clr--post-click: #737373;
+  --clr--post-click: #cbd5e1;
   --clr--title: #1e1b4b;
+  --clr--light-background: #a1a1aa;
 
   --ff--body: "Monoton", sans-serif;
 }
@@ -28,6 +29,7 @@ body {
   align-items: center;
   gap: 2em;
   margin-bottom: 5em;
+  width: 100%;
 }
 
 .game__grid {
@@ -70,8 +72,21 @@ body {
 .game-over {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  width: fit-content;
   color: var(--clr--title);
   font-size: 2em;
+  text-align: center;
+}
+
+.start-over {
+  text-align: center;
+  background-color: var(--clr--light-background);
+  border-radius: 0.5em;
+  padding: 0.5em 0.75em;
+  color: var(--clr--title);
+  font-size: 1.75em;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 1024px) {
@@ -80,6 +95,11 @@ body {
   }
 
   .game-over {
+    width: 60%;
+    font-size: 1.75em;
+  }
+
+  .start-over {
     font-size: 1.5em;
   }
 }
@@ -90,6 +110,10 @@ body {
   }
 
   .game-over {
+    font-size: 1.25em;
+  }
+
+  .start-over {
     font-size: 1em;
   }
 }
@@ -100,6 +124,11 @@ body {
   }
 
   .game-over {
+    width: 50%;
     font-size: 1em;
+  }
+
+  .start-over {
+    font-size: 0.75em;
   }
 }

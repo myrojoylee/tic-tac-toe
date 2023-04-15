@@ -1,6 +1,7 @@
 const gameCard = document.querySelectorAll(".card");
 const gameGrid = document.querySelector(".game__grid");
 const gameOver = document.querySelector(".game-over");
+const startOver = document.querySelector(".start-over");
 
 let nextPlayer = true;
 let someoneHasWon = false;
@@ -19,33 +20,40 @@ const winConditions = [
   ["two", "five", "eight"],
 ];
 
+startOver.addEventListener("click", () => {
+  location.reload();
+});
+
 for (let i = 0; i < gameCard.length; i++) {
   gameCard[i].addEventListener("click", function (e) {
     squareClicked = e.target.id;
-    // console.log("hey");
+    gameOver.style.color = "transparent";
     gameGrid.classList.add("game__grid-disabled");
     gameCard[i].classList.add("card-disabled");
     gameCard[i].classList.add("card-clicked");
     setTimeout(() => {
       gameCard[i].classList.remove("card-clicked");
-    }, "100");
+    }, "50");
     continuePlay();
   });
 }
 
 function continuePlay() {
+  let x, y;
   if (someoneHasWon === false) {
     turn++;
     if (nextPlayer === true) {
       playerOneClicks.push(squareClicked);
-      let x = (document.querySelector(`#${squareClicked}`).textContent = "X");
+      x = document.querySelector(`#${squareClicked}`).textContent = "X";
       gameGrid.classList.remove("game__grid-disabled");
       nextPlayer = false;
       someoneHasWon = false;
       checkPlayerOne();
     } else {
       playerTwoClicks.push(squareClicked);
-      let y = (document.querySelector(`#${squareClicked}`).textContent = "O");
+      y = document.querySelector(`#${squareClicked}`);
+      y.textContent = "O";
+      y.style.color = "red";
       gameGrid.classList.remove("game__grid-disabled");
       nextPlayer = true;
       someoneHasWon = false;
@@ -73,7 +81,6 @@ function checkPlayerOne() {
 
 function checkPlayerTwo() {
   if (turn > 0) {
-    console.log(playerTwoClicks);
     for (let i = 0; i < winConditions.length; i++) {
       let check = winConditions[i].every((value) => {
         return playerTwoClicks.includes(value);
@@ -91,6 +98,8 @@ function checkPlayerTwo() {
 
 function endGame() {
   gameOver.textContent = "GAME OVER!";
-  gameOver.style.fontSize = "3em";
+  gameOver.style.display = "flex";
+
+  gameOver.style.fontSize = "2em";
   gameOver.style.color = "red";
 }
