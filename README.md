@@ -10,7 +10,7 @@ This is the first draft of a work in progress! Play this classic game on this mi
 
 Demo:
 
-<img src="https://github.com/myrojoylee/tic-tac-toe/blob/main/assets/images/tic-tac-toe.gif" width = "700" />
+<img src="https://github.com/myrojoylee/tic-tac-toe/blob/main/assets/images/tic-tac-toe.gif" width = "400" />
 
 [Click here for live site](https://myrojoylee.github.io/tic-tac-toe/)
 
