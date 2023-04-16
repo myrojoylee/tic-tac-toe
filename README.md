@@ -20,7 +20,8 @@ A thank you to [Andres Romero](https://github.com/aromero18020) for helping me g
 
 Code was adapted from the following sources:
 
-[Umer Farooq, CodePen](https://codepen.io/Umer_Farooq/pen/eYJgKGN)
+[Umer Farooq's CodePen](https://codepen.io/Umer_Farooq/pen/eYJgKGN)
+
 [DCodeMania](https://dcodemania.com/post/switch-dark-light-mode-css-javascript)
 
 ## License
