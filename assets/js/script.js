@@ -1,13 +1,21 @@
+// ================================================== //
+//                  DOM ELEMENT SELECTORS             //
+// ================================================== //
+
 const gameCard = document.querySelectorAll(".card");
 const gameGrid = document.querySelector(".game__grid");
 const gameOver = document.querySelector(".game-over");
 const startOver = document.querySelector(".start-over");
 const checkBox = document.getElementById("checkbox");
-// const rootVar = document.querySelector(":root");
 
+// adding event listener to toggle light/dark themes
 checkBox.addEventListener("change", () => {
   document.documentElement.classList.toggle("dark");
 });
+
+// ================================================== //
+//                  GAME LOGIC VARIABLES              //
+// ================================================== //
 
 let nextPlayer = true;
 let someoneHasWon = false;
@@ -30,6 +38,11 @@ startOver.addEventListener("click", () => {
   location.reload();
 });
 
+// ================================================== //
+//               ----------- CODE ---------           //
+// ================================================== //
+
+// adding event listeners to game grid squares
 for (let i = 0; i < gameCard.length; i++) {
   gameCard[i].addEventListener("click", function (e) {
     squareClicked = e.target.id;
@@ -44,6 +57,7 @@ for (let i = 0; i < gameCard.length; i++) {
   });
 }
 
+// gameplay continues here
 function continuePlay() {
   let x, y;
   if (someoneHasWon === false) {
@@ -68,6 +82,7 @@ function continuePlay() {
   }
 }
 
+// checking for win conditions for player 1
 function checkPlayerOne() {
   if (turn < 9) {
     for (let i = 0; i < winConditions.length; i++) {
@@ -85,6 +100,7 @@ function checkPlayerOne() {
   }
 }
 
+// checking for win conditions for player 2
 function checkPlayerTwo() {
   if (turn > 0) {
     for (let i = 0; i < winConditions.length; i++) {
@@ -102,10 +118,10 @@ function checkPlayerTwo() {
   }
 }
 
+// end screen
 function endGame() {
   gameOver.textContent = "GAME OVER!";
   gameOver.style.display = "flex";
-
   gameOver.style.fontSize = "2em";
   gameOver.style.color = "red";
 }

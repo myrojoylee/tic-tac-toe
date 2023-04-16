@@ -1,8 +1,16 @@
+/* -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
+/*          ------------ RESET------------        */
+/* -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
+/* -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
+/*      --------- LIGHT/DARK THEMES --------      */
+/* -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
 
 :root,
 :root.light {
@@ -25,6 +33,10 @@
   --ff--body: "Monoton", sans-serif;
 }
 
+/* -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
+/*     --------- BODY/WRAPPER STYLES --------     */
+/* -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
+
 body {
   background-color: var(--clr--pre-click);
   display: grid;
@@ -43,13 +55,12 @@ body {
   margin-bottom: 5em;
   width: 100%;
 }
-
-/* -=-=-=-=-=-=- LIGHT/DARK THEME TOGGLER -=-=-=-=-=-=- */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/*    ~~~~~ Toggler Styling ~~~~    */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 .theme-toggler {
   display: flex;
-  /* justify-content: center; */
-  /* align-items: center; */
   align-self: start;
 }
 
@@ -95,7 +106,9 @@ body {
   color: #f39c12;
 }
 
-/* -=-=-=-=-=-=- GAME GRID STYLES -=-=-=-=-=-=- */
+/* -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
+/*       --------- GAME GRID STYLES --------      */
+/* -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
 
 .game__grid {
   display: grid;
@@ -122,10 +135,6 @@ body {
   font-size: 5em;
   cursor: pointer;
 }
-
-/* .card:hover {
-  background-color: var(--clr--hover);
-} */
 
 .card-clicked {
   background-color: var(--clr--post-click);
@@ -154,6 +163,10 @@ body {
   font-size: 1.75em;
   cursor: pointer;
 }
+
+/* -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
+/*     --------- RESPONSIVE STYLES --------     */
+/* -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
 
 @media screen and (max-width: 1024px) {
   .card {
