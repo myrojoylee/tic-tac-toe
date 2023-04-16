@@ -2,6 +2,12 @@ const gameCard = document.querySelectorAll(".card");
 const gameGrid = document.querySelector(".game__grid");
 const gameOver = document.querySelector(".game-over");
 const startOver = document.querySelector(".start-over");
+const checkBox = document.getElementById("checkbox");
+// const rootVar = document.querySelector(":root");
+
+checkBox.addEventListener("change", () => {
+  document.documentElement.classList.toggle("dark");
+});
 
 let nextPlayer = true;
 let someoneHasWon = false;

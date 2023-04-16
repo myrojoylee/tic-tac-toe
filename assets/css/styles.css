@@ -4,7 +4,8 @@
   box-sizing: border-box;
 }
 
-:root {
+:root,
+:root.light {
   --clr--pre-click: white;
   --clr--hover: #fca5a5;
   --clr--post-click: #cbd5e1;
@@ -14,7 +15,18 @@
   --ff--body: "Monoton", sans-serif;
 }
 
+:root.dark {
+  --clr--pre-click: #1e1b4b;
+  --clr--hover: #fca5a5;
+  --clr--post-click: #cbd5e1;
+  --clr--title: white;
+  --clr--light-background: #a1a1aa;
+
+  --ff--body: "Monoton", sans-serif;
+}
+
 body {
+  background-color: var(--clr--pre-click);
   display: grid;
   justify-content: center;
   align-items: center;
@@ -32,6 +44,59 @@ body {
   width: 100%;
 }
 
+/* -=-=-=-=-=-=- LIGHT/DARK THEME TOGGLER -=-=-=-=-=-=- */
+
+.theme-toggler {
+  display: flex;
+  /* justify-content: center; */
+  /* align-items: center; */
+  align-self: start;
+}
+
+.checkbox-label {
+  background-color: var(--clr--title);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 50px;
+  height: 25px;
+  padding: 7px;
+  margin: 5px 0 0 5px;
+  cursor: pointer;
+  border-radius: 50px;
+  position: relative;
+}
+.checkbox {
+  opacity: 0;
+  position: absolute;
+}
+
+.checkbox-label .ball {
+  background-color: var(--clr--pre-click);
+  border: 1px solid var(--clr--title);
+  width: 22px;
+  height: 22px;
+  background-color: var(--clr--pre-click);
+  border-radius: 50%;
+  left: 2px;
+  transition: transform 0.2s linear;
+  position: absolute;
+}
+
+.checkbox:checked + .checkbox-label .ball {
+  transform: translateX(24px);
+}
+
+.fa-moon {
+  color: #f1c40f;
+}
+
+.fa-sun {
+  color: #f39c12;
+}
+
+/* -=-=-=-=-=-=- GAME GRID STYLES -=-=-=-=-=-=- */
+
 .game__grid {
   display: grid;
   height: 100%;
@@ -41,6 +106,7 @@ body {
   border: 1px solid grey;
   gap: 0.5em;
   padding: 0.5em;
+  color: var(--clr--title);
 }
 
 .game__grid-disabled {
@@ -81,10 +147,10 @@ body {
 
 .start-over {
   text-align: center;
-  background-color: var(--clr--light-background);
+  background-color: var(--clr--title);
   border-radius: 0.5em;
   padding: 0.5em 0.75em;
-  color: var(--clr--title);
+  color: var(--clr--pre-click);
   font-size: 1.75em;
   cursor: pointer;
 }
