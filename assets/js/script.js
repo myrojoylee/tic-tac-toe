@@ -209,12 +209,7 @@ function checkPlayerOne() {
 
 // checking for win conditions for player 2
 function checkPlayerTwo() {
-  // player one's check up there checks for turn amount under 9.
-  // here we just need to check that the game has started
-  // if have turn < 9 here, we risk some weird behavior
-  // saying the game is over when it isn't.
-  // check google doc for bug that happens**
-  if (turn > 0) {
+  if (turn < 9) {
     for (let i = 0; i < winConditions.length; i++) {
       // we initialize a check variable that will return
       // true if all ids in player two's array is a win
